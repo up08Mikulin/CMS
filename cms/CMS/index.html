@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        const changeToNumber = e => {
+	        const value = e.value;
+	        e.value = value.replace(/\D/g, '');
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h2 class="header__title">CMS - SHOPOLINE</h2>
+            <p class="header__sum">Итоговая стоимость: <span class="sum-icon">$</span><span class="sum">0</span></p>
+        </header>
+        <main class="main">
+            <section class="main__table">
+                <div class="main__table-header">
+                    <div class="main__table-header-search">
+                        <div class="main__table-filter-btn">
+                            <img class="main__table-filter-btn-img" src="assets/img/icons/Filter.svg"></img>
+                            <div>
+                                <select id="main__table-filter-btn-text" class="main__table-filter-btn-text">
+                                    <option value="hide">Фильтр</option>
+                                    <option value="technology">Техника для дома</option>
+                                    <option value="technology">Техника для дома!</option>
+                                    <option value="technology">Техника для дома?</option>
+                                    <option value="technology">Техника для дома*</option>   
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="main__table-header-search-container">
+                            <img class="table-search-input-img" src="assets/img/icons/Search.svg"></img>
+                            <input type="search" class="table-search-input" placeholder="Поиск по наименованию и категории"></input>
+                        </div>
+                    </div>
+                    <div class="add-product-btn">
+                        <p class="add-product-btn-text">добавить товар</p>
+                    </div>
+                </div>
+                <table class="main__table-body">
+                    <thead><tr><th>id</th><th>наименование</th><th>категория</th><th>ед/изм</th><th>количество</th><th>цена</th><th>итог</th><th></th><th></th><th></th></tr></thead>
+                    <tbody class="tbody"></tbody>
+                </table>
+                <div class="main__table-footer">
+                    <div class="footer-items">
+                        <div class="page-setting">
+                            <p class="page-setting-text"> Показывать на странице: 5 </p>
+                        </div>
+                        <div class="page-number">
+                            <p class="page-number-text"> 1-10 из 48 </p>
+                        </div>
+                        <div class="page-btns">
+                            <img class="left-btn" src="assets/img/content/Vector.png">
+                            <img class="right-btn" src="assets/img/content/Vector-1.png">
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            <div class="pop-up">
+                <img class="pop-up__close" src="assets/img/icons/Group 85.svg">
+                <div class="pop-up-container">
+                    <div class="pop-up__header">
+                        <h2 class="pop-up__title">Добавить товар</h2>
+                    </div>
+                    <form class="pop-up__main" method="post">
+                        <div class="left">
+                            <div class="name-input">
+                                <label>наименование</label>
+                                <textarea required class="textarea-name" name="name"></textarea>
+                            </div>
+                            <div class="category-input">
+                                <label>категория</label>
+                                <textarea required class="textarea-category" name="category"></textarea>
+                            </div>
+                            <div class="units-input">
+                                <label>единицы измерения</label>
+                                <textarea required class="textarea-units" name="units"></textarea>
+                            </div>
+                            <div class="discount-input">
+                                <label>discount</label>
+                                <div class="group">
+                                    <input class="checkbox" class="checkbox" type="checkbox">
+                                    <textarea disabled required pattern="[0-9]{11}" class="textarea-discount" name="discount"  oninput="changeToNumber(this)"></textarea>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="description-input">
+                                <label>описание</label>
+                                <textarea required class="textarea-description" name="description"></textarea>
+                            </div>
+                            <div class="amount-input">
+                                <label>Количество</label>
+                                <textarea required class="textarea-amount" name="amount" oninput="changeToNumber(this)"></textarea>
+                            </div>
+                            <div class="price-input">
+                                <label>цена</label>
+                                <textarea required class="textarea-price" name="price" oninput="changeToNumber(this)"></textarea>
+                            </div>
+                           
+                            <label class="custom-file-upload">
+                                <input type="file" class="add-img"/>
+                                добавить изображение
+                            </label>
+                            
+                            <button class="footer__btn" type="submit">
+                                добавить товар
+                            </button>
+                        </div>
+                        
+                    </form>
+                    <div class="pop-up__footer">
+                        <p class="footer__sum">Итоговая стоимость: <span class="sum-icon">$</span><span class="footer-sum">0</span></p>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        
+    </div>
+    <script src="assets/js/script.js" type="module" defer></script>
+</body>
+</html>
